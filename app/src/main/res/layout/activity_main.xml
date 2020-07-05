@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+        <variable
+            name="ezetapOne"
+            type="com.example.ezetap_appone.MainViewModel" />
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        tools:context=".MainActivity">
+
+        <ImageView
+            android:id="@+id/image_ezeTap"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@drawable/ezetap"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintBottom_toTopOf="@id/textView_result"
+            android:contentDescription="@null"/>
+
+        <TextView
+            android:id="@+id/textView_result"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@={ezetapOne.result}"
+            android:textColor="@android:color/black"
+            android:textSize="23sp"
+            app:layout_constraintBottom_toTopOf="@id/button_addition"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/image_ezeTap" />
+
+        <Button
+            android:id="@+id/button_addition"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="ADDITION"
+            android:onClick="@{() -> ezetapOne.addition()}"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toStartOf="@id/button_subtraction"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <Button
+            android:id="@+id/button_subtraction"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="SUBSTRACTION"
+            android:onClick="@{() -> ezetapOne.subtraction()}"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toEndOf="@id/button_addition"
+            app:layout_constraintTop_toTopOf="parent" />
+
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+</layout>
